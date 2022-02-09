@@ -34,7 +34,7 @@
     </Window.Resources>
     
     <Grid>
-        <ListView x:Name="lista_clientes_ventana_tactil" ItemsSource="{Binding Source={StaticResource CollectionVmVentanaTactil},Path=ListaClientes}" MouseDoubleClick="lista_clientes_ventana_tactil_MouseDoubleClick_1" >
+        <ListView x:Name="lista_clientes_ventana_tactil" ItemsSource="{Binding Source={StaticResource CollectionVmVentanaTactil},Path=ListaClientes}" MouseDoubleClick="lista_clientes_ventana_tactil_MouseDoubleClick_1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border  Style="{StaticResource Brd}">
