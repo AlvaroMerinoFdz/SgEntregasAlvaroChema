@@ -4,8 +4,52 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
+        xmlns:vm="clr-namespace:SgEntregasAlvaroChema.viewModel"
         mc:Ignorable="d"
         Title="VentanaTactil" Height="500" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <vm:CollectionViewModel x:Key="CollectionVmVentanaTactil"/>
+
+        <Style x:Key="txt" TargetType="TextBlock">
+            <Setter Property="TextTrimming" Value="WordEllipsis"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="MaxHeight" Value="50"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style x:Key="Stack_H" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+
+        <Style x:Key="Stack_V" TargetType="StackPanel">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+
+        <Style x:Key="Brd" TargetType="Border">
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+
+    </Window.Resources>
+    
     <Grid>
+        <ListView x:Name="lista_clientes_ventana_tactil" ItemsSource="{Binding Source={StaticResource CollectionVmVentanaTactil},Path=ListaClientes}" MouseDoubleClick="lista_clientes_ventana_tactil_MouseDoubleClick_1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border  Style="{StaticResource Brd}">
+                        <StackPanel  Style="{StaticResource Stack_H}" >
+                            <StackPanel Style="{StaticResource Stack_V}">
+                                <TextBlock>
+                                    <TextBlock x:Name="txt_nombre_cliente" Style="{StaticResource txt}" FontSize="25" Text="{Binding nombre}"/>
+                                    <LineBreak/>
+                                    <TextBlock Style="{StaticResource txt}" FontSize="15" Text="{Binding apellidos}"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
