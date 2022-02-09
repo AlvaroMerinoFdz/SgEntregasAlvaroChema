@@ -1,0 +1,18 @@
+﻿<Window x:Class="SgEntregasAlvaroChema.VentanaOrdenador"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SgEntregasAlvaroChema"
+        mc:Ignorable="d"
+        Title="Vista de Ordenador" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" x:Name="btn_gestion_clientes" Content="Gestión de Clientes." Click="btn_gestion_clientes_Click"/>
+        <Button Grid.Column="1" x:Name="btn_gestion_pedidos" Content="Gestión de Pedidos." Click="btn_gestion_pedidos_Click"/>
+
+    </Grid>
+</Window>
