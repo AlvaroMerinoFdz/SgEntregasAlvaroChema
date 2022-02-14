@@ -14,7 +14,7 @@ namespace SgEntregasAlvaroChema
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
 
-    public partial class pedidos : INotifyPropertyChanged
+    public partial class pedidos : INotifyPropertyChanged, ICloneable
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void notificarPropertyChanged([CallerMemberName] string propertyName = "")
@@ -23,6 +23,11 @@ namespace SgEntregasAlvaroChema
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
 
         //public int id_pedido { get; set; }

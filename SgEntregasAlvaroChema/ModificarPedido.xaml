@@ -1,22 +1,21 @@
-﻿<Window x:Class="SgEntregasAlvaroChema.AddPedido"
+﻿<Window x:Class="SgEntregasAlvaroChema.ModificarPedido"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         mc:Ignorable="d"
-        Title="AddPedido" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+         Title="Modificar Pedido" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+   
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <StackPanel>
-                <TextBlock Text="Cliente: " Margin="5" />
                 <TextBlock Text="Fecha del pedido: " Margin="5" />
                 <TextBlock Text="Descripción: " Margin="5" />
             </StackPanel>
             <StackPanel>
-                <ComboBox x:Name="cmb_cliente" Width="200" Margin="4" IsReadOnly="True" IsEnabled="False" />
-                <DatePicker x:Name="dtp_fecha_pedido" Width="200" Margin="4"/>
-                <TextBox x:Name="txt_descripcion" Width="200" Margin="4"/>
+                <DatePicker x:Name="dtp_fecha_pedido" Width="200" Margin="4" SelectedDate="{Binding fecha_pedido}"/>
+                <TextBox x:Name="txt_descripcion" Width="200" Margin="4" Text="{Binding descripcion}"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
