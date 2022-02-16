@@ -33,7 +33,7 @@ namespace SgEntregasAlvaroChema
         private void lista_clientes_ventana_tactil_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
         {
             int pos = lista_clientes_ventana_tactil.SelectedIndex;
-            VentanaPedidosClientesTactil windPed = new VentanaPedidosClientesTactil(cvm.ListaClientes[pos], cvm);
+            VentanaPedidosClientesTactil windPed = new VentanaPedidosClientesTactil(cvm.ListaClientes[pos],cvm);
             windPed.ShowDialog();
         }
 

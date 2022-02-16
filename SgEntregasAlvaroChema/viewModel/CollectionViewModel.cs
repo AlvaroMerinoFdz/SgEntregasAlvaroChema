@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace SgEntregasAlvaroChema.viewModel
 {
@@ -16,6 +17,45 @@ namespace SgEntregasAlvaroChema.viewModel
         {
             cargarDatos();
         }
+
+        //public CollectionViewModel(string id_cliente) 
+        //{
+        //    cargarDatos(id_cliente);
+        //}
+
+        //private void cargarDatos(string id_cliente) 
+        //{
+
+        //    ListaClientes.Clear();
+
+        //    var qClientes = from clie in objBD.clientes
+        //                   where clie.dni == id_cliente
+        //                   select clie;
+        //    foreach (var c in qClientes.ToList())
+        //    {
+        //        ListaClientes.Add(c);
+        //    }
+
+        //    ListaProvincias.Clear();
+        //    var qProvincias = from prov in objBD.provincias select prov;
+        //    foreach (var provi in qProvincias.ToList())
+        //    {
+        //        ListaProvincias.Add(provi);
+        //    }
+
+        //    //Cargamos los pedidos
+        //    ListaPedidos.Clear();
+        //    var qPedidos = from pedi in objBD.pedidos
+        //                    where pedi.cliente == id_cliente
+        //                    orderby pedi.fecha_pedido
+        //                    select pedi;
+        //    foreach (var pedi in qPedidos.ToList())
+        //    {
+        //        ListaPedidos.Add(pedi);
+        //    }
+
+         
+        //}
 
         private void cargarDatos()
         {
@@ -43,6 +83,7 @@ namespace SgEntregasAlvaroChema.viewModel
                 ListaPedidos.Add(pedi);
             }
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
         
         private void notificarPropertyChanged([CallerMemberName] string propertyName = "")

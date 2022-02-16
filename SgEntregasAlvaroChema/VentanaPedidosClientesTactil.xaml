@@ -4,9 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
+        xmlns:views="clr-namespace:SgEntregasAlvaroChema.MyViews"
+        xmlns:vm="clr-namespace:SgEntregasAlvaroChema.viewModel"
+        xmlns:component="clr-namespace:SgEntregasAlvaroChema.UsersCards"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
         mc:Ignorable="d"
         Title="VentanaPedidosClientesTactil" Height="450" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
+    <Window.Resources>
+        <!--<vm:CollectionViewModel x:Key="ColeccionVM"/>-->
         
+        <!--<ObjectDataProvider ObjectType="{x:Type vm:CollectionViewModel}" x:Key="CollectionViewModel">
+            <ObjectDataProvider.ConstructorParameters>
+                <sys:Int32>3</sys:Int32>
+            </ObjectDataProvider.ConstructorParameters>
+        </ObjectDataProvider>-->
+    </Window.Resources>
+    <Grid>
+        <StackPanel x:Name="sp_card_list" Orientation="Vertical"  Height="450" Width="800">
+            
+        </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <views:UserControlPedidosStackPanelView/>
+        </ScrollViewer>
     </Grid>
 </Window>

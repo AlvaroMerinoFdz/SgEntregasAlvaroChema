@@ -94,6 +94,10 @@
     <Compile Include="Model\ClienteCollection.cs" />
     <Compile Include="Model\PedidoCollection.cs" />
     <Compile Include="Model\ProvinciaCollection.cs" />
+    <Compile Include="MyConverters\GreatherThanConverter.cs" />
+    <Compile Include="MyViews\UserControlPedidosStackPanelView.xaml.cs">
+      <DependentUpon>UserControlPedidosStackPanelView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pedidos.cs">
       <DependentUpon>ModelEntregas.tt</DependentUpon>
     </Compile>
@@ -141,6 +145,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MyViews\UserControlPedidosStackPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UsersCards\UserControlPedidos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
