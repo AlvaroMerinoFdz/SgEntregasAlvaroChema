@@ -13,17 +13,22 @@
         <convert:GreatherThanConverter x:Key="myConverterGreatherThan"/>
     </UserControl.Resources>
 
-    <StackPanel VerticalAlignment="Top">
-        <StackPanel.Style>
-            <Style TargetType="StackPanel">
-                <Style.Triggers>
-                    <DataTrigger Binding="{Binding ActualWith, ElementName=root, Converter={StaticResource myConverterGreatherThan},ConverterParameter=750}" Value="true">
-                        <Setter Property="Orientation" Value="Vertical"/>
-                    </DataTrigger>
-                </Style.Triggers>
-            </Style>
-        </StackPanel.Style>
-        <!--<component:UserControlPedidos Margin="10" Id_Pedido="0" Descripcion="F" Fecha_Pedido="01/01/2000" />-->
-        <!--<component:UserControlPedidos Margin="10" Id_Pedido="0" Descripcion="F" Fecha_Pedido="01/01/2000" />-->
-    </StackPanel>
+    <Border  BorderBrush="Gray" BorderThickness="1" CornerRadius="3" Padding="15">
+        <StackPanel VerticalAlignment="Top">
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ActualWidth, ElementName=root, Converter={StaticResource myConverterGreatherThan},ConverterParameter=750}" Value="true">
+                            <Setter Property="Orientation" Value="Vertical"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            <!--<component:UserControlPedidos Margin="10" Id_Pedido="0" Descripcion="F" Fecha_Pedido="01/01/2000" />-->
+            <!--<component:UserControlPedidos Margin="10" Id_Pedido="0" Descripcion="F" Fecha_Pedido="01/01/2000" />-->
+            
+            <!--<Button x:Name="btn_firmar_sp" Margin="5,5,5,10" Height="30" Width="200" Content="Firmar" FontWeight="Bold" Click="btn_firmar_Click"/>-->
+        </StackPanel>
+    </Border>
+    
 </UserControl>

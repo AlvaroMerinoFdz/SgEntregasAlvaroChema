@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         mc:Ignorable="d"
         Title="VentanaFirma" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="local:Comandos.AceptarFirma" CanExecute="check_ejecuta_aceptar_firma" Executed="ejecuta_aceptar_firma"/>
+        <CommandBinding Command="local:Comandos.LimpiarFirma" CanExecute="check_ejecuta_limpiar_firma" Executed="ejecuta_limpiar_firma"/>
+    </Window.CommandBindings>
+
+
     <Grid>
         <Canvas Name="theRootCanvas" Height="424" VerticalAlignment="Bottom" Margin="0,0,416.6,0.4">
             <Border Background="White" BorderBrush="Black" BorderThickness="2" 
@@ -16,8 +23,11 @@
             </Border>
 
         </Canvas>
-        <Button x:Name="btn_aceptar_firma" Content="Aceptar" HorizontalAlignment="Left" Margin="521,94,0,0" VerticalAlignment="Top" Width="121" Height="35"/>
-        <Button x:Name="btn_cancelar_firma" Content="Cancelar" HorizontalAlignment="Left" Margin="521,196,0,0" VerticalAlignment="Top" Width="121" Height="35"/>
-        <Button x:Name="btn_limpiar_firma" Content="Limpiar" HorizontalAlignment="Left" Margin="521,292,0,0" VerticalAlignment="Top" Width="121" Height="35"/>
+        <Button x:Name="btn_aceptar_firma" Content="Aceptar" HorizontalAlignment="Left" Margin="520,130,0,0" VerticalAlignment="Top" Width="121" Height="35"  Command="local:Comandos.AceptarFirma"/>
+        <Button x:Name="btn_cancelar_firma" Content="Cancelar" HorizontalAlignment="Left" Margin="520,232,0,0" VerticalAlignment="Top" Width="121" Height="35"/>
+        <Button x:Name="btn_limpiar_firma" Content="Limpiar" HorizontalAlignment="Left" Margin="520,328,0,0" VerticalAlignment="Top" Width="121" Height="35" Command="local:Comandos.LimpiarFirma"/>
+        
+        <Label Content="Id Pedido :" HorizontalAlignment="Left" Margin="399,31,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lbl_id_pedido" Content="" HorizontalAlignment="Left" Margin="487,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.047,0.844"/>
     </Grid>
 </Window>
