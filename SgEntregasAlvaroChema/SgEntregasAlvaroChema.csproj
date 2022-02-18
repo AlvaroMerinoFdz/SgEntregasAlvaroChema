@@ -105,6 +105,10 @@
     <Compile Include="ModificarPedido.xaml.cs">
       <DependentUpon>ModificarPedido.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyConverters\GreatherThanConverter.cs" />
+    <Compile Include="MyViews\UserControlPedidosStackPanelView.xaml.cs">
+      <DependentUpon>UserControlPedidosStackPanelView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pedidos.cs">
       <DependentUpon>ModelEntregas.tt</DependentUpon>
     </Compile>
@@ -114,8 +118,17 @@
     <Compile Include="SeleccionarUsuario.xaml.cs">
       <DependentUpon>SeleccionarUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UsersCards\UserControlPedidos.xaml.cs">
+      <DependentUpon>UserControlPedidos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaFirma.xaml.cs">
+      <DependentUpon>VentanaFirma.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaOrdenador.xaml.cs">
       <DependentUpon>VentanaOrdenador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaPedidosClientesTactil.xaml.cs">
+      <DependentUpon>VentanaPedidosClientesTactil.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaTactil.xaml.cs">
       <DependentUpon>VentanaTactil.xaml</DependentUpon>
@@ -150,6 +163,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MyViews\UserControlPedidosStackPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UsersCards\UserControlPedidos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaFirma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ModificarCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VentanaOrdenador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaPedidosClientesTactil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
