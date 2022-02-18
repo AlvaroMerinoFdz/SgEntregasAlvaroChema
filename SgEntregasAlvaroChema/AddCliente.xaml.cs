@@ -57,6 +57,8 @@ namespace SgEntregasAlvaroChema
             //también añadiremos la referencia al otro objeto
             cliente.provincias = coleccionVM.ListaProvincias[cmb_provincia.SelectedIndex];
 
+            bool correcto = true;
+
             if (this.txt_dni.Text.Trim() == "" || this.txt_nombre.Text.Trim() == "" || this.txt_apellidos.Text.Trim() == ""
                 || this.txt_email.Text.Trim() == "" || this.txt_localidad.Text.Trim() == "")
             {
@@ -64,13 +66,28 @@ namespace SgEntregasAlvaroChema
             }
             else
             {
-                //Lo guardamos en la lista de la tabla de clientes de la base de datos
-                coleccionVM.objBD.clientes.Add(cliente);
-                //Lo guardamos en la lista observable
-                coleccionVM.ListaClientes.Add(cliente);
-                //Cerramos la ventana de añadir.
-                MessageBox.Show("Cliente añadido correctamente.", "Cliente añadido");
-                this.Close();
+                foreach (var cli in coleccionVM.ListaClientes)
+                {
+                    if(cli.dni == txt_dni.Text)
+                    {
+                        correcto = false;
+                    }
+                }
+                if (correcto)
+                {
+                    //Lo guardamos en la lista de la tabla de clientes de la base de datos
+                    coleccionVM.objBD.clientes.Add(cliente);
+                    //Lo guardamos en la lista observable
+                    coleccionVM.ListaClientes.Add(cliente);
+                    //Cerramos la ventana de añadir.
+                    MessageBox.Show("Cliente añadido correctamente.", "Cliente añadido");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("DNI ya existente.", "Error añadido", MessageBoxButton.OK);
+
+                }
             }
         }
     }

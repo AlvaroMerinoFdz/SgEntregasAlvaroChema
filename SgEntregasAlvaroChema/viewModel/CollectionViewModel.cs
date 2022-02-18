@@ -43,6 +43,17 @@ namespace SgEntregasAlvaroChema.viewModel
                 ListaPedidos.Add(pedi);
             }
         }
+
+        public void cargarPedidosCliente(string dni)
+        {
+            ListaPedidos.Clear();
+            var qPedidos = from ped in objBD.pedidos where ped.cliente == dni select ped;
+            foreach (var pedi in qPedidos.ToList())
+            {
+                ListaPedidos.Add(pedi);
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         
         private void notificarPropertyChanged([CallerMemberName] string propertyName = "")
