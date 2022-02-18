@@ -1,17 +1,7 @@
 ﻿using SgEntregasAlvaroChema.viewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SgEntregasAlvaroChema
 {
@@ -21,10 +11,13 @@ namespace SgEntregasAlvaroChema
     public partial class GestionPedidos : Window
     {
         private CollectionViewModel coleccionVM;
-        public GestionPedidos()
+        private clientes cliente;
+        public GestionPedidos(clientes cliente)
         {
             InitializeComponent();
             coleccionVM = (CollectionViewModel)this.Resources["ColeccionVM"];
+            this.cliente = cliente;
+            coleccionVM.cargarPedidosCliente(cliente.dni);
         }
         private void Add_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -33,7 +26,7 @@ namespace SgEntregasAlvaroChema
 
         private void Seleccionado_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (lstPedidos.SelectedIndex >= 0)
+            if (dgPedidos.SelectedItems.Count > 0)
             {
                 e.CanExecute = true;
             }
@@ -45,17 +38,27 @@ namespace SgEntregasAlvaroChema
 
         private void Add_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            AddCliente ventana = new AddCliente(coleccionVM);
+            AddPedido ventana = new AddPedido(coleccionVM, cliente);
             ventana.ShowDialog();
         }
         private void Modificar_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
+            pedidos pedido = (pedidos)dgPedidos.SelectedItem;
+            ModificarPedido modificar = new ModificarPedido(pedido, coleccionVM);
+            modificar.ShowDialog();
         }
 
         private void Eliminar_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            coleccionVM.ListaPedidos.Remove((pedidos)lstPedidos.SelectedItem);
+            DialogResult resp = (DialogResult)System.Windows.MessageBox.Show("¿Deseas borrar el elemento seleccionado?", "Borrar Cliente", MessageBoxButton.YesNo, (MessageBoxImage)MessageBoxIcon.Information);
+            if (resp == System.Windows.Forms.DialogResult.Yes)
+            {
+                //Ahora lo eliminamos de la BBDD
+                coleccionVM.objBD.pedidos.Remove((pedidos)dgPedidos.SelectedItem);
+                //Lo eliminamos de la lista del collection view model
+                coleccionVM.ListaPedidos.Remove((pedidos)dgPedidos.SelectedItem);
+                System.Windows.Forms.MessageBox.Show("Pedido eliminado correctamente...", "Pedido Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void GuardarBBDD_Executed(object sender, ExecutedRoutedEventArgs e)

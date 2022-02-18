@@ -15,53 +15,49 @@
     </Window.CommandBindings>
     <Window.Resources>
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
-        <Style x:Key="txt" TargetType="TextBlock">
-            <Setter Property="TextTrimming" Value="WordEllipsis"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
-            <Setter Property="MaxHeight" Value="50"/>
-            <Setter Property="Margin" Value="5"/>
-        </Style>
-        <Style x:Key="Stack_H" TargetType="StackPanel">
-            <Setter Property="Orientation" Value="Horizontal"/>
-        </Style>
-        <Style x:Key="Stack_V" TargetType="StackPanel">
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="Margin" Value="2"/>
-        </Style>
-        <Style x:Key="Brd" TargetType="Border">
-            <Setter Property="BorderBrush" Value="DarkGray"/>
-            <Setter Property="BorderThickness" Value="2"/>
+
+        <!--Aqui meteriamos ahora los estilos-->
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserReorderColumns" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserSortColumns" Value="False"/>
+            <Setter Property="SelectionMode" Value="Single"/>
         </Style>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="24*"/>
-            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
         </Grid.ColumnDefinitions>
-        <ListView x:Name="lstPedidos" ItemsSource="{Binding Source ={StaticResource ColeccionVM}, Path=ListaPedidos}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border Style="{StaticResource Brd}">
-                        <StackPanel Style="{StaticResource Stack_H}">
-                            <StackPanel Style="{StaticResource Stack_V}">
-                                <TextBlock>
-                                    <TextBlock Style="{StaticResource txt}" FontSize="15" Text="{Binding id_pedido}"/>
-                                    <LineBreak/>
-                                    <TextBlock Style="{StaticResource txt}" FontSize="15" Text="{Binding descripcion}"/>
-                                    <!--<LineBreak/>
-                                    <TextBlock Style="{StaticResource txt}" FontSize="10" Text="{Binding email}"/>-->
-                                </TextBlock>
-                            </StackPanel>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <StackPanel Grid.Column="1" Margin="0,190,0,0">
-            <Button x:Name="btn_añadir" Command="local:Comandos.Add"  Content="Añadir" HorizontalAlignment="Center" VerticalAlignment="Top" Width="160" ToolTip="Añade un cliente nuevo." ></Button>
-            <Button x:Name="btn_modificar" Command="local:Comandos.Modificar"  Content="Modificar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Modifica el cliente seleccionado." Width="160" Margin="0,5,0,0"></Button>
-            <Button x:Name="btn_eliminar" Command="local:Comandos.Eliminar" Content="Eliminar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Elimina el cliente seleccionado." Width="160" Margin="0,5,0,0"></Button>
-            <Button x:Name="btn_guardar" Command="local:Comandos.Guardar" Content="Guardar BD"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Actualiza la BBDD." Width="160"  Margin="0,5,0,0"/>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid x:Name="dgPedidos"  ColumnWidth="Auto" Grid.ColumnSpan="4" 
+                  ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaPedidos}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Id Pedido" Binding="{Binding id_pedido}"/>
+                <DataGridTextColumn Width="*" Header="Nombre" Binding="{Binding clientes.nombre}"/>
+                <DataGridTextColumn Width="*" Header="Apellidos" Binding="{Binding clientes.apellidos}"/>
+                <DataGridTextColumn Width="*" Header="Fecha del pedido" Binding="{Binding fecha_pedido}"/>
+                <DataGridTextColumn Width="*" Header="Descripcion" Binding="{Binding descripcion}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        
+            <Button Grid.Column="0" Grid.Row="1" x:Name="btn_añadir" Command="local:Comandos.Add"  Content="Añadir" HorizontalAlignment="Center" VerticalAlignment="Top" Width="160" ToolTip="Añade un cliente nuevo." ></Button>
+        <Button Grid.Column="1" Grid.Row="1" x:Name="btn_modificar" Command="local:Comandos.Modificar"  Content="Modificar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Modifica el cliente seleccionado." Width="160" Margin="0,5,0,0"></Button>
+        <Button Grid.Column="2" Grid.Row="1" x:Name="btn_eliminar" Command="local:Comandos.Eliminar" Content="Eliminar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Elimina el cliente seleccionado." Width="160" Margin="0,5,0,0"></Button>
+        <Button Grid.Column="3" Grid.Row="1" x:Name="btn_guardar" Command="local:Comandos.Guardar" Content="Guardar BD"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Actualiza la BBDD." Width="160"  Margin="0,5,0,0"/>
+        
     </Grid>
 </Window>

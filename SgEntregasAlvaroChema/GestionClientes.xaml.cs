@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -50,13 +51,48 @@ namespace SgEntregasAlvaroChema
         }
         private void Modificar_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
+            int pos = lstClientes.SelectedIndex;
+            ModificarCliente ventana = new ModificarCliente(coleccionVM.ListaClientes[pos], coleccionVM);
+            ventana.ShowDialog();
         }
 
         private void Eliminar_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            coleccionVM.ListaClientes.Remove((clientes)lstClientes.SelectedItem);
-        }
+            DialogResult resp = (DialogResult)System.Windows.MessageBox.Show("¿Deseas borrar el elemento seleccionado?", "Borrar Cliente", MessageBoxButton.YesNo, (MessageBoxImage)MessageBoxIcon.Information);
+            int pos = lstClientes.SelectedIndex;
+            clientes objCliente = (clientes)lstClientes.SelectedItem;
+            if (resp == System.Windows.Forms.DialogResult.Yes)
+            {
+                if(objCliente.pedidos.Count > 0)
+                {
+                    DialogResult dr = (DialogResult)System.Windows.MessageBox.Show("Si elimina el cliente tambien eliminará sus pedidos ¿Quiere borrar todo?", "Eliminar medico", MessageBoxButton.YesNo);
+                    if(dr == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        while(objCliente.pedidos.Count > 0)
+                        {
+                            var pedido = (pedidos)objCliente.pedidos.First();
+                            coleccionVM.objBD.pedidos.Remove(pedido);
+                        }
+                        //Ahora lo eliminamos de la BBDD
+                        coleccionVM.objBD.clientes.Remove((clientes)lstClientes.SelectedItem);
+                        //Lo eliminamos de la lista del collection view model
+                        coleccionVM.ListaClientes.RemoveAt(lstClientes.SelectedIndex);
+                        System.Windows.Forms.MessageBox.Show("Cliente eliminado correctamente...", "Cliente Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+
+                }
+                else
+                {
+                     //Ahora lo eliminamos de la BBDD
+                        coleccionVM.objBD.clientes.Remove((clientes)lstClientes.SelectedItem);
+                        //Lo eliminamos de la lista del collection view model
+                        coleccionVM.ListaClientes.RemoveAt(lstClientes.SelectedIndex);
+                        System.Windows.Forms.MessageBox.Show("Cliente eliminado correctamente...", "Cliente Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            }
 
         private void GuardarBBDD_Executed(object sender, ExecutedRoutedEventArgs e)
         {

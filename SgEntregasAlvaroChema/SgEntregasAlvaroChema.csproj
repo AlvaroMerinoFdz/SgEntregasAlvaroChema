@@ -46,6 +46,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -67,9 +68,13 @@
     <Compile Include="AddCliente.xaml.cs">
       <DependentUpon>AddCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddPedido.xaml.cs">
+      <DependentUpon>AddPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="clientes.cs">
       <DependentUpon>ModelEntregas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Converters\ProvinciaConverter.cs" />
     <Compile Include="GestionClientes.xaml.cs">
       <DependentUpon>GestionClientes.xaml</DependentUpon>
     </Compile>
@@ -94,6 +99,12 @@
     <Compile Include="Model\ClienteCollection.cs" />
     <Compile Include="Model\PedidoCollection.cs" />
     <Compile Include="Model\ProvinciaCollection.cs" />
+    <Compile Include="ModificarCliente.xaml.cs">
+      <DependentUpon>ModificarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPedido.xaml.cs">
+      <DependentUpon>ModificarPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyConverters\GreatherThanConverter.cs" />
     <Compile Include="MyViews\UserControlPedidosStackPanelView.xaml.cs">
       <DependentUpon>UserControlPedidosStackPanelView.xaml</DependentUpon>
@@ -103,6 +114,9 @@
     </Compile>
     <Compile Include="provincias.cs">
       <DependentUpon>ModelEntregas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionarUsuario.xaml.cs">
+      <DependentUpon>SeleccionarUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="UsersCards\UserControlPedidos.xaml.cs">
       <DependentUpon>UserControlPedidos.xaml</DependentUpon>
@@ -121,6 +135,10 @@
     </Compile>
     <Compile Include="viewModel\CollectionViewModel.cs" />
     <Page Include="AddCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,6 +172,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VentanaFirma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SeleccionarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

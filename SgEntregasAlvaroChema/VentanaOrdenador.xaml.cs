@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SgEntregasAlvaroChema.viewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace SgEntregasAlvaroChema
     /// </summary>
     public partial class VentanaOrdenador : Window
     {
+        private CollectionViewModel coleccionVM;
         public VentanaOrdenador()
         {
             InitializeComponent();
+            coleccionVM = (CollectionViewModel)this.Resources["ColeccionVM"];
         }
 
         private void btn_gestion_clientes_Click(object sender, RoutedEventArgs e)
@@ -32,7 +35,7 @@ namespace SgEntregasAlvaroChema
 
         private void btn_gestion_pedidos_Click(object sender, RoutedEventArgs e)
         {
-            GestionPedidos ventana = new GestionPedidos();
+            SeleccionarUsuario ventana = new SeleccionarUsuario();
             ventana.ShowDialog();
         }
     }
