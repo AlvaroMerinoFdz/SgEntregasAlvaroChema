@@ -6,25 +6,28 @@
              xmlns:local="clr-namespace:SgEntregasAlvaroChema.UsersCards"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="3" Padding="15">
+    <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="3" Padding="15" MouseLeftButtonUp="UserControlPedidos_MouseLeftButtonUp" TouchDown="UserControlPedidos_TouchDown">
         <Border.Effect>
             <DropShadowEffect ShadowDepth="5" BlurRadius="5" Opacity=".75"/>
         </Border.Effect>
         <StackPanel>
             <StackPanel>
-                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Id Pedido"/>
-                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding id_pedido}"/>
+                <TextBlock Margin="2" FontWeight="Bold" HorizontalAlignment="Center" Text="Id Pedido"/>
+                <TextBlock Margin="2" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding id_pedido}"/>
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Descripcion"/>
-                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding descripcion}"/>
+                <TextBlock Margin="2" FontWeight="Bold" HorizontalAlignment="Center" Text="Descripcion"/>
+                <TextBlock Margin="2" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding descripcion}"/>
             </StackPanel>
 
             <StackPanel>
-                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Fecha del pedido"/>
-                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding fecha_pedido}"/>
+                <TextBlock Margin="2" FontWeight="Bold" HorizontalAlignment="Center" Text="Fecha del pedido"/>
+                <TextBlock Margin="2" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding fecha_pedido}"/>
             </StackPanel>
-            
+
+            <StackPanel>
+                <Button x:Name="btn_firmar" Margin="5" Height="30" Width="200" Content="Firmar" FontWeight="Bold" Click="btn_firmar_Click"/>
+            </StackPanel>
         </StackPanel>
     </Border>
 </UserControl>

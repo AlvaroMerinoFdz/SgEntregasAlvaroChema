@@ -38,6 +38,9 @@ namespace SgEntregasAlvaroChema
             VentanaTactil venTactil = new VentanaTactil();
             venTactil.ShowDialog();
 
+            //VentanaFirma venFirm = new VentanaFirma(1);
+            //venFirm.ShowDialog();
+
         }
         private void btn_ordenador_Click(object sender, RoutedEventArgs e)
         {

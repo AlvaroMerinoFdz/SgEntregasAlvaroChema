@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace SgEntregasAlvaroChema
 {
-    class Comandos
+    public class Comandos
     {
         //Comandos ventana principal
 
@@ -57,6 +57,26 @@ namespace SgEntregasAlvaroChema
             new InputGestureCollection()
             {
                 new KeyGesture(Key.F4)
+            }
+       );
+
+        public static readonly RoutedUICommand AceptarFirma = new RoutedUICommand(
+            "Accion cuando se acepta al firmar",
+            "Firmar",
+            typeof(MainWindow),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F5)
+            }
+       );
+
+        public static readonly RoutedUICommand LimpiarFirma = new RoutedUICommand(
+            "Accion cuando se limpia al firmar",
+            "Limpiar",
+            typeof(MainWindow),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F6)
             }
        );
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SgEntregasAlvaroChema.viewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,10 +27,33 @@ namespace SgEntregasAlvaroChema.UsersCards
 
         public static readonly DependencyProperty Fecha_PedidoProperty = DependencyProperty.Register("fecha_pedido", typeof(DateTime), typeof(UserControlPedidos), new PropertyMetadata(new DateTime()));
 
-        public UserControlPedidos()
+        CollectionViewModel cvm;
+
+        
+        public UserControlPedidos(CollectionViewModel cvm)
         {
             InitializeComponent();
+
+            this.cvm = cvm;
+            this.MouseLeftButtonUp += UserControlPedidos_MouseLeftButtonUp;
+            this.TouchDown += UserControlPedidos_TouchDown;
         }
+
+        private void UserControlPedidos_TouchDown(object sender, TouchEventArgs e)
+        {
+            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm);
+            winFirm.ShowDialog();
+            e.Handled = true;
+        }
+
+        private void UserControlPedidos_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm);
+            winFirm.ShowDialog();
+            e.Handled = true;
+        }
+
+
 
         public int Id_Pedido 
         {
@@ -48,5 +72,33 @@ namespace SgEntregasAlvaroChema.UsersCards
             get { return (DateTime)GetValue(Fecha_PedidoProperty); }
             set { SetValue(Fecha_PedidoProperty, value); }
         }
+
+        private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("sdkjhsajhgsa");
+            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm);
+            winFirm.ShowDialog();
+            e.Handled = true;
+        }
+
+        private void Border_TouchDown(object sender, TouchEventArgs e)
+        {
+            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm);
+            winFirm.ShowDialog();
+            e.Handled = true;
+        }
+
+        private void btn_firmar_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm);
+            winFirm.ShowDialog();
+            e.Handled = true;
+        }
+
+        //private void Border_MouseDown(object sender, MouseButtonEventArgs e) 
+        //{
+        //    VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm);
+        //    winFirm.ShowDialog();
+        //}
     }
 }
