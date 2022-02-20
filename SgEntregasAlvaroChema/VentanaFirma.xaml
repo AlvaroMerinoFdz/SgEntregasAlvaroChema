@@ -24,7 +24,7 @@
 
         </Canvas>
         <Button x:Name="btn_aceptar_firma" Content="Aceptar" HorizontalAlignment="Left" Margin="520,130,0,0" VerticalAlignment="Top" Width="121" Height="35"  Command="local:Comandos.AceptarFirma"/>
-        <Button x:Name="btn_cancelar_firma" Content="Cancelar" HorizontalAlignment="Left" Margin="520,232,0,0" VerticalAlignment="Top" Width="121" Height="35"/>
+        <Button x:Name="btn_cancelar_firma" Content="Cancelar" HorizontalAlignment="Left" Margin="520,232,0,0" VerticalAlignment="Top" Width="121" Height="35" Click="btn_cancelar_firma_Click"/>
         <Button x:Name="btn_limpiar_firma" Content="Limpiar" HorizontalAlignment="Left" Margin="520,328,0,0" VerticalAlignment="Top" Width="121" Height="35" Command="local:Comandos.LimpiarFirma"/>
         
         <Label Content="Id Pedido :" HorizontalAlignment="Left" Margin="399,31,0,0" VerticalAlignment="Top" FontWeight="Bold"/>

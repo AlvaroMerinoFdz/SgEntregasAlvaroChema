@@ -22,7 +22,7 @@
         </Style>
 
         <Style x:Key="Stack_V" TargetType="StackPanel">
-            <Setter Property="Width" Value="200"/>
+            <Setter Property="Width" Value="750"/>
             <Setter Property="Margin" Value="2"/>
         </Style>
 
@@ -42,8 +42,10 @@
                             <StackPanel Style="{StaticResource Stack_V}">
                                 <TextBlock>
                                     <TextBlock x:Name="txt_nombre_cliente" Style="{StaticResource txt}" FontSize="25" Text="{Binding nombre}"/>
+                                    <!--<LineBreak/>-->
+                                    <TextBlock Style="{StaticResource txt}" FontSize="25" Text="{Binding apellidos}"/>
                                     <LineBreak/>
-                                    <TextBlock Style="{StaticResource txt}" FontSize="15" Text="{Binding apellidos}"/>
+                                    <TextBlock Style="{StaticResource txt}" FontSize="10" Text="{Binding email}"/>
                                 </TextBlock>
                             </StackPanel>
                         </StackPanel>

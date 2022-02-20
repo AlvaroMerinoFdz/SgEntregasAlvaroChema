@@ -42,7 +42,7 @@ namespace SgEntregasAlvaroChema
 
 
             var query = from p in cvm.objBD.pedidos
-                        where p.cliente == this.clienteActual.dni
+                        where p.cliente == this.clienteActual.dni && p.fecha_entrega == null
                         select p;
 
             var lista = query.ToList();
@@ -56,7 +56,8 @@ namespace SgEntregasAlvaroChema
 
             foreach (pedidos p in lista)
             {
-                UserControlPedidos ucp = new UserControlPedidos(cvm);
+                
+                UserControlPedidos ucp = new UserControlPedidos(cvm, p);
 
                 ucp.Id_Pedido = p.id_pedido;
                 ucp.Descripcion = p.descripcion;

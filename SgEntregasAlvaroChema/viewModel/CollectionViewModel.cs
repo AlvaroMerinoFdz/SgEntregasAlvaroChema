@@ -61,7 +61,7 @@ namespace SgEntregasAlvaroChema.viewModel
         {
             //Cargamos los clientes
             ListaClientes.Clear();
-            var qClientes = from cli in objBD.clientes select cli;
+            var qClientes = from cli in objBD.clientes orderby cli.apellidos, cli.nombre select cli ;
             foreach (var client in qClientes.ToList())
             {
                 ListaClientes.Add(client);

@@ -25,7 +25,7 @@
             <Setter Property="Orientation" Value="Horizontal"/>
         </Style>
         <Style x:Key="Stack_V" TargetType="StackPanel">
-            <Setter Property="Width" Value="200"/>
+            <Setter Property="Width" Value="430"/>
             <Setter Property="Margin" Value="2"/>
         </Style>
         <Style x:Key="Brd" TargetType="Border">

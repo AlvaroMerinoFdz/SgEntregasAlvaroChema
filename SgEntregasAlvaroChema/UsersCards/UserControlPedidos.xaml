@@ -25,9 +25,9 @@
                 <TextBlock Margin="2" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding fecha_pedido}"/>
             </StackPanel>
 
-            <StackPanel>
+            <!--<StackPanel>
                 <Button x:Name="btn_firmar" Margin="5" Height="30" Width="200" Content="Firmar" FontWeight="Bold" Click="btn_firmar_Click"/>
-            </StackPanel>
+            </StackPanel>-->
         </StackPanel>
     </Border>
 </UserControl>

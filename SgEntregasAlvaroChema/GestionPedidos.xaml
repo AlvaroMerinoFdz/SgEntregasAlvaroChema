@@ -50,6 +50,7 @@
                 <DataGridTextColumn Width="*" Header="Apellidos" Binding="{Binding clientes.apellidos}"/>
                 <DataGridTextColumn Width="*" Header="Fecha del pedido" Binding="{Binding fecha_pedido}"/>
                 <DataGridTextColumn Width="*" Header="Descripcion" Binding="{Binding descripcion}"/>
+                <DataGridTextColumn Width="*" Header="Fecha de Entrega" Binding="{Binding fecha_entrega}"/>
             </DataGrid.Columns>
         </DataGrid>
 

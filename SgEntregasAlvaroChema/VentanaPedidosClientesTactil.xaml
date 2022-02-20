@@ -19,12 +19,15 @@
             </ObjectDataProvider.ConstructorParameters>
         </ObjectDataProvider>-->
     </Window.Resources>
-    <Grid>
+    
+       
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+
         <StackPanel x:Name="sp_card_list" Orientation="Vertical"  Height="450" Width="800">
             
-        </StackPanel>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <views:UserControlPedidosStackPanelView/>
-        </ScrollViewer>
-    </Grid>
+            
+        </StackPanel>
+    </ScrollViewer>
+    
 </Window>
