@@ -25,7 +25,7 @@
             <Setter Property="Orientation" Value="Horizontal"/>
         </Style>
         <Style x:Key="Stack_V" TargetType="StackPanel">
-            <Setter Property="Width" Value="200"/>
+            <Setter Property="Width" Value="430"/>
             <Setter Property="Margin" Value="2"/>
         </Style>
         <Style x:Key="Brd" TargetType="Border">
@@ -58,10 +58,10 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Column="1" Margin="0,190,0,0">
-            <Button x:Name="btn_añadir" Command="local:Comandos.Add"  Content="Añadir" HorizontalAlignment="Center" VerticalAlignment="Top" Width="160" ToolTip="Añade un cliente nuevo." ></Button>
-            <Button x:Name="btn_modificar" Command="local:Comandos.Modificar"  Content="Modificar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Modifica el cliente seleccionado." Width="160" Margin="0,5,0,0"></Button>
-            <Button x:Name="btn_eliminar" Command="local:Comandos.Eliminar" Content="Eliminar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Elimina el cliente seleccionado." Width="160" Margin="0,5,0,0"></Button>
-            <Button x:Name="btn_guardar" Command="local:Comandos.Guardar" Content="Guardar BD"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Actualiza la BBDD." Width="160"  Margin="0,5,0,0"/>
+            <Button x:Name="btn_añadir" Command="local:Comandos.Add"  Content="Añadir" HorizontalAlignment="Center" VerticalAlignment="Top" Width="181" ToolTip="Añade un cliente nuevo." Margin="84,0,64,0" ></Button>
+            <Button x:Name="btn_modificar" Command="local:Comandos.Modificar"  Content="Modificar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Modifica el cliente seleccionado." Width="181" Margin="84,5,64,0"/>
+            <Button x:Name="btn_eliminar" Command="local:Comandos.Eliminar" Content="Eliminar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Elimina el cliente seleccionado." Width="181" Margin="84,5,64,0"></Button>
+            <Button x:Name="btn_guardar" Command="local:Comandos.Guardar" Content="Guardar BD"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Actualiza la BBDD." Width="181"  Margin="84,5,64,0"/>
         </StackPanel>
     </Grid>
 </Window>
