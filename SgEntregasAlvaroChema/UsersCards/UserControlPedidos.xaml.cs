@@ -29,9 +29,9 @@ namespace SgEntregasAlvaroChema.UsersCards
 
         CollectionViewModel cvm;
         pedidos pedido;
-
+        private VentanaPedidosClientesTactil ventanaAnterior;
         
-        public UserControlPedidos(CollectionViewModel cvm, pedidos pedido)
+        public UserControlPedidos(CollectionViewModel cvm, pedidos pedido, VentanaPedidosClientesTactil ventanaAnterior)
         {
             InitializeComponent();
 
@@ -40,19 +40,21 @@ namespace SgEntregasAlvaroChema.UsersCards
             this.pedido = pedido;
             this.MouseLeftButtonUp += UserControlPedidos_MouseLeftButtonUp;
             this.TouchDown += UserControlPedidos_TouchDown;
+            this.ventanaAnterior = ventanaAnterior;
         }
 
         private void UserControlPedidos_TouchDown(object sender, TouchEventArgs e)
         {
-            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm, pedido);
+            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm, pedido, ventanaAnterior);
             winFirm.ShowDialog();
             e.Handled = true;
         }
 
         private void UserControlPedidos_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm, pedido);
-            winFirm.ShowDialog();
+            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm, pedido, ventanaAnterior);
+            ventanaAnterior.Visibility = Visibility.Hidden;
+            winFirm.Show();
             e.Handled = true;
         }
 
@@ -76,32 +78,21 @@ namespace SgEntregasAlvaroChema.UsersCards
             set { SetValue(Fecha_PedidoProperty, value); }
         }
 
-        private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("sdkjhsajhgsa");
-            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm, pedido );
-            winFirm.ShowDialog();
-            e.Handled = true;
-        }
-
-        private void Border_TouchDown(object sender, TouchEventArgs e)
-        {
-            VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm, pedido);
-            winFirm.ShowDialog();
-            e.Handled = true;
-        }
-
-        //private void btn_firmar_Click(object sender, RoutedEventArgs e)
+        //private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         //{
-        //    VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm);
+        //    MessageBox.Show("sdkjhsajhgsa");
+        //    VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm, pedido,ventanaAnterior );
         //    winFirm.ShowDialog();
         //    e.Handled = true;
         //}
 
-        //private void Border_MouseDown(object sender, MouseButtonEventArgs e) 
+        //private void Border_TouchDown(object sender, TouchEventArgs e)
         //{
-        //    VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm);
+        //    VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm, pedido, ventanaAnterior);
         //    winFirm.ShowDialog();
+        //    e.Handled = true;
         //}
+
+        
     }
 }
