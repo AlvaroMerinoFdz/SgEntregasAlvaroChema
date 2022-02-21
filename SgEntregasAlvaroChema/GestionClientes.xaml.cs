@@ -22,10 +22,12 @@ namespace SgEntregasAlvaroChema
     public partial class GestionClientes : Window
     {
         private CollectionViewModel coleccionVM;
-        public GestionClientes()
+        private VentanaOrdenador ventanaAnterior;
+        public GestionClientes(VentanaOrdenador ventanaAnterior)
         {
             InitializeComponent();
             coleccionVM = (CollectionViewModel)this.Resources["ColeccionVM"];
+            this.ventanaAnterior = ventanaAnterior;
         }
         private void Add_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -97,6 +99,11 @@ namespace SgEntregasAlvaroChema
         private void GuardarBBDD_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             coleccionVM.guardarDatos();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.ventanaAnterior.Visibility = Visibility.Visible;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace SgEntregasAlvaroChema
         clientes clienteActual;
         clientes clienteCopia;
         CollectionViewModel cvm;
+        private VentanaTactil ventanaAnterior;
 
         public VentanaPedidosClientesTactil(clientes client)
         {
@@ -27,7 +28,7 @@ namespace SgEntregasAlvaroChema
 
         }
 
-        public VentanaPedidosClientesTactil(clientes client, CollectionViewModel cvm)
+        public VentanaPedidosClientesTactil(clientes client, CollectionViewModel cvm, VentanaTactil ventanaAnterior)
         {
             InitializeComponent();
 
@@ -35,6 +36,7 @@ namespace SgEntregasAlvaroChema
             this.cvm = cvm;
 
             cargarPedidosCliente();
+            this.ventanaAnterior = ventanaAnterior;
         }
 
         private void cargarPedidosCliente()
@@ -57,7 +59,7 @@ namespace SgEntregasAlvaroChema
             foreach (pedidos p in lista)
             {
                 
-                UserControlPedidos ucp = new UserControlPedidos(cvm, p);
+                UserControlPedidos ucp = new UserControlPedidos(cvm, p,this);
 
                 ucp.Id_Pedido = p.id_pedido;
                 ucp.Descripcion = p.descripcion;
@@ -65,6 +67,11 @@ namespace SgEntregasAlvaroChema
 
                 this.sp_card_list.Children.Add(ucp);
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.ventanaAnterior.Visibility = Visibility.Visible;
         }
     }
 }

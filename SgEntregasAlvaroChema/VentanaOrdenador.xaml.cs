@@ -20,23 +20,32 @@ namespace SgEntregasAlvaroChema
     /// </summary>
     public partial class VentanaOrdenador : Window
     {
+        private MainWindow ventanaAnterior;
         private CollectionViewModel coleccionVM;
-        public VentanaOrdenador()
+        public VentanaOrdenador(MainWindow ventana)
         {
             InitializeComponent();
             coleccionVM = (CollectionViewModel)this.Resources["ColeccionVM"];
+            this.ventanaAnterior = ventana;
         }
 
         private void btn_gestion_clientes_Click(object sender, RoutedEventArgs e)
         {
-            GestionClientes ventana = new GestionClientes();
-            ventana.ShowDialog();
+            GestionClientes ventana = new GestionClientes(this);
+            this.Visibility = Visibility.Hidden;
+            ventana.Show();
         }
 
         private void btn_gestion_pedidos_Click(object sender, RoutedEventArgs e)
         {
             SeleccionarUsuario ventana = new SeleccionarUsuario();
             ventana.ShowDialog();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ventanaAnterior.Visibility = Visibility.Visible;
+
         }
     }
 }

@@ -26,8 +26,9 @@ namespace SgEntregasAlvaroChema
         private CollectionViewModel cvm;
         private pedidos pedidoActual;
         private pedidos pedidoCopia;
+        private VentanaPedidosClientesTactil ventanaAnterior;
 
-        public VentanaFirma(int id_pedido, CollectionViewModel cvm, pedidos ped)
+        public VentanaFirma(int id_pedido, CollectionViewModel cvm, pedidos ped, VentanaPedidosClientesTactil ventanaAnterior)
         {
             InitializeComponent();
 
@@ -37,6 +38,7 @@ namespace SgEntregasAlvaroChema
 
             this.pedidoActual = ped;
             this.pedidoCopia = (pedidos)ped.Clone();
+            this.ventanaAnterior = ventanaAnterior;
 
         }
 
@@ -103,6 +105,11 @@ namespace SgEntregasAlvaroChema
                     return null;
                 }
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.ventanaAnterior.Visibility = Visibility.Visible;
         }
     }
 }
