@@ -1,4 +1,5 @@
-﻿using System;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace SgEntregasAlvaroChema.MyViews
         public UserControlPedidosStackPanelView()
         {
             InitializeComponent();
+            comprobarOrientacion();
+            SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -36,6 +39,24 @@ namespace SgEntregasAlvaroChema.MyViews
             //VentanaFirma winFirm = new VentanaFirma(1);
             //winFirm.ShowDialog();
 
+        }
+
+        private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
+        {
+            comprobarOrientacion();
+        }
+
+        private void comprobarOrientacion()
+        {
+
+            if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
+            {
+                contenderCards.Orientation = Orientation.Horizontal;
+            }
+            else
+            {
+                contenderCards.Orientation = Orientation.Vertical;
+            }
         }
     }
 }
