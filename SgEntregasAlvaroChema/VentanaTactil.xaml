@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         xmlns:vm="clr-namespace:SgEntregasAlvaroChema.viewModel"
         mc:Ignorable="d"
-        Title="VentanaTactil" Height="500" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="VentanaTactil" Height="500" Width="800" WindowStartupLocation="CenterScreen" >  <!--ResizeMode="NoResize"-->
     <Window.Resources>
         <vm:CollectionViewModel x:Key="CollectionVmVentanaTactil"/>
 
