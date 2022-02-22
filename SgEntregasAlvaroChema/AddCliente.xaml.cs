@@ -21,11 +21,13 @@ namespace SgEntregasAlvaroChema
     public partial class AddCliente : Window
     {
         CollectionViewModel coleccionVM;
-        public AddCliente(CollectionViewModel colectionVM)
+        GestionClientes ventanaAnterior;
+        public AddCliente(CollectionViewModel colectionVM, GestionClientes ventanaAnterior)
         {
             InitializeComponent();
             this.coleccionVM = colectionVM;
             cargarProvincias();
+            this.ventanaAnterior = ventanaAnterior;
         }
 
         private void cargarProvincias()
@@ -89,6 +91,11 @@ namespace SgEntregasAlvaroChema
 
                 }
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ventanaAnterior.Visibility = Visibility.Visible;
         }
     }
 }

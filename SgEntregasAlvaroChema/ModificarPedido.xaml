@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         mc:Ignorable="d"
-         Title="Modificar Pedido" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+         Title="Modificar Pedido" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
    
     <StackPanel>
         <StackPanel Orientation="Horizontal">

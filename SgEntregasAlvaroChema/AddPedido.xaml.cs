@@ -23,13 +23,15 @@ namespace SgEntregasAlvaroChema
         CollectionViewModel coleccionVM;
         List<String> clientesList;
         clientes cliente;
-        public AddPedido(CollectionViewModel coleccionVM, clientes cliente)
+        GestionPedidos ventanaAnterior;
+        public AddPedido(CollectionViewModel coleccionVM, clientes cliente , GestionPedidos ventanaAnterior)
         {
             InitializeComponent();
             clientesList = new List<String>();
             this.coleccionVM = coleccionVM;
             this.cliente = cliente;
             cargarDatos();
+            this.ventanaAnterior = ventanaAnterior;
         }
 
         private void cargarDatos()
@@ -76,6 +78,11 @@ namespace SgEntregasAlvaroChema
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.ventanaAnterior.Visibility = Visibility.Visible;
         }
     }
 }

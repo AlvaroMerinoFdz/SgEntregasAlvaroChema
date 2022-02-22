@@ -38,8 +38,9 @@ namespace SgEntregasAlvaroChema
 
         private void btn_gestion_pedidos_Click(object sender, RoutedEventArgs e)
         {
-            SeleccionarUsuario ventana = new SeleccionarUsuario();
-            ventana.ShowDialog();
+            SeleccionarUsuario ventana = new SeleccionarUsuario(this);
+            this.Visibility = Visibility.Hidden;
+            ventana.Show();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

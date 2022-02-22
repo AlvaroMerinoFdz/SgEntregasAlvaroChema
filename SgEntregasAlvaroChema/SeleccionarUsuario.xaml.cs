@@ -22,11 +22,12 @@ namespace SgEntregasAlvaroChema
     {
         CollectionViewModel coleccionVM;
         List<clientes> clientesList = new List<clientes>();
-        public SeleccionarUsuario()
+        VentanaOrdenador ventanaAnterior;
+        public SeleccionarUsuario(VentanaOrdenador ventanaAnterior)
         {
             InitializeComponent();
             coleccionVM = (CollectionViewModel)this.Resources["ColeccionVM"];
-
+            this.ventanaAnterior = ventanaAnterior;
             cargarClientes();
         }
 
@@ -45,8 +46,14 @@ namespace SgEntregasAlvaroChema
         private void btnCargarPedidos_Click(object sender, RoutedEventArgs e)
         {
             clientes cliente = clientesList[cmb_clientes.SelectedIndex];
-            GestionPedidos ventana = new GestionPedidos(cliente);
-            ventana.ShowDialog();
+            GestionPedidos ventana = new GestionPedidos(cliente,this);
+            this.Visibility = Visibility.Hidden;
+            ventana.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.ventanaAnterior.Visibility = Visibility.Visible;
         }
     }
 }
