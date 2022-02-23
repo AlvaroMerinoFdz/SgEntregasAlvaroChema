@@ -18,8 +18,10 @@
             <StackPanel.Style>
                 <Style TargetType="StackPanel">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ActualWidth, ElementName=root, Converter={StaticResource myConverterGreatherThan},ConverterParameter=750}" Value="true">
-                            <Setter Property="Orientation" Value="Vertical"/>
+                        <DataTrigger Binding="{Binding ActualWidth, ElementName=root,
+                            Converter={StaticResource myConverterGreatherThan},ConverterParameter=750}" 
+                                     Value="true">
+                            <Setter Property="Orientation" Value="Horizontal"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
