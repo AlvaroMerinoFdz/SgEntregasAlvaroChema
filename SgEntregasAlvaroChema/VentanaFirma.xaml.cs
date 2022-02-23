@@ -109,7 +109,7 @@ namespace SgEntregasAlvaroChema
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            this.ventanaAnterior.Visibility = Visibility.Visible;
+            this.ventanaAnterior.Close();
         }
     }
 }
