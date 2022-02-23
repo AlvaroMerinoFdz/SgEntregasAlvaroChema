@@ -1,5 +1,7 @@
-﻿using SgEntregasAlvaroChema.UsersCards;
+﻿using Microsoft.Win32;
+using SgEntregasAlvaroChema.UsersCards;
 using SgEntregasAlvaroChema.viewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -26,6 +28,9 @@ namespace SgEntregasAlvaroChema
             this.clienteActual = client;
             this.cvm = (CollectionViewModel)((ObjectDataProvider)this.Resources["CollectionViewModel"]).ObjectInstance;
             //this.cvm = new CollectionViewModel(clienteActual);
+
+            comprobarOrientacion();
+            SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
 
         }
 
@@ -77,6 +82,28 @@ namespace SgEntregasAlvaroChema
         private void Window_GotFocus(object sender, RoutedEventArgs e)
         {
             cargarPedidosCliente();
+        }
+
+        private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
+        {
+            comprobarOrientacion();
+        }
+
+        private void comprobarOrientacion()
+        {
+
+            if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
+            {
+                sp_card_list.Orientation = System.Windows.Controls.Orientation.Horizontal;
+                this.Height = SystemParameters.PrimaryScreenHeight;
+                this.Width = SystemParameters.PrimaryScreenWidth;
+            }
+            else
+            {
+                sp_card_list.Orientation = System.Windows.Controls.Orientation.Vertical;
+                this.Height = SystemParameters.PrimaryScreenHeight;
+                this.Width = SystemParameters.PrimaryScreenWidth;
+            }
         }
     }
 }
