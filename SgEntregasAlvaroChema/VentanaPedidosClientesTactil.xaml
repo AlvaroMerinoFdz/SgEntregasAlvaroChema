@@ -9,7 +9,7 @@
         xmlns:component="clr-namespace:SgEntregasAlvaroChema.UsersCards"
         xmlns:sys="clr-namespace:System;assembly=mscorlib" 
         mc:Ignorable="d"
-        Title="VentanaPedidosClientesTactil" Height="450" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="Clientes" Height="450" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
     <Window.Resources>
         <!--<vm:CollectionViewModel x:Key="ColeccionVM"/>-->
         

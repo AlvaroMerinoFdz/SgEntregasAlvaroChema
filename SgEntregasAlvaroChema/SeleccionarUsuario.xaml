@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         xmlns:vm ="clr-namespace:SgEntregasAlvaroChema.viewModel"
     mc:Ignorable="d"
-        Title="SeleccionarUsuario" Height="273" Width="361" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="Seleccionar Usuario" Height="273" Width="361" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
     <Window.Resources>
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
     </Window.Resources>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Ventana Principal" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.Salir" Executed="Salir_Executed" CanExecute="Salir_CanExecute"/>
     </Window.CommandBindings>

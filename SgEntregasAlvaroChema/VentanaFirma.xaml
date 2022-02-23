@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         mc:Ignorable="d"
-        Title="VentanaFirma" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="Firma del Pedido" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
 
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.AceptarFirma" CanExecute="check_ejecuta_aceptar_firma" Executed="ejecuta_aceptar_firma"/>
