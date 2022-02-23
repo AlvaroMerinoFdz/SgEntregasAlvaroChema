@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         xmlns:vm="clr-namespace:SgEntregasAlvaroChema.viewModel"
         mc:Ignorable="d"
-        Title="Gestión de Clientes" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Gestión de Clientes" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.Add" CanExecute="Add_CanExecute" Executed="Add_Executed"/>
         <CommandBinding Command="local:Comandos.Modificar" CanExecute="Seleccionado_CanExecute" Executed="Modificar_Executed"/>
@@ -34,11 +34,28 @@
         </Style>
     </Window.Resources>
     <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Offset="0.1" Color="LimeGreen" />
+                    <GradientStop Offset="1" Color="YellowGreen" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="24*"/>
             <ColumnDefinition Width="17*"/>
         </Grid.ColumnDefinitions>
         <ListView x:Name="lstClientes" ItemsSource="{Binding Source ={StaticResource ColeccionVM}, Path=ListaClientes}">
+            <ListView.Background>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.1" Color="LimeGreen" />
+                        <GradientStop Offset="1" Color="Yellow" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Style="{StaticResource Brd}">
@@ -58,10 +75,10 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Column="1" Margin="0,190,0,0">
-            <Button x:Name="btn_añadir" Command="local:Comandos.Add"  Content="Añadir" HorizontalAlignment="Center" VerticalAlignment="Top" Width="181" ToolTip="Añade un cliente nuevo." Margin="84,0,64,0" ></Button>
-            <Button x:Name="btn_modificar" Command="local:Comandos.Modificar"  Content="Modificar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Modifica el cliente seleccionado." Width="181" Margin="84,5,64,0"/>
-            <Button x:Name="btn_eliminar" Command="local:Comandos.Eliminar" Content="Eliminar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Elimina el cliente seleccionado." Width="181" Margin="84,5,64,0"></Button>
-            <Button x:Name="btn_guardar" Command="local:Comandos.Guardar" Content="Guardar BD"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Actualiza la BBDD." Width="181"  Margin="84,5,64,0"/>
+            <Button Background="Yellow" x:Name="btn_añadir" Command="local:Comandos.Add"  Content="Añadir" HorizontalAlignment="Center" VerticalAlignment="Top" Width="181" ToolTip="Añade un cliente nuevo." Margin="84,0,64,0" ></Button>
+            <Button Background="Yellow" x:Name="btn_modificar" Command="local:Comandos.Modificar"  Content="Modificar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Modifica el cliente seleccionado." Width="181" Margin="84,5,64,0"/>
+            <Button Background="Yellow" x:Name="btn_eliminar" Command="local:Comandos.Eliminar" Content="Eliminar"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Elimina el cliente seleccionado." Width="181" Margin="84,5,64,0"></Button>
+            <Button Background="Yellow" x:Name="btn_guardar" Command="local:Comandos.Guardar" Content="Guardar BD"  HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Actualiza la BBDD." Width="181"  Margin="84,5,64,0"/>
         </StackPanel>
     </Grid>
 </Window>

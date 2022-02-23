@@ -1,17 +1,5 @@
 ﻿using SgEntregasAlvaroChema.viewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SgEntregasAlvaroChema
 {
@@ -21,11 +9,13 @@ namespace SgEntregasAlvaroChema
     public partial class AddCliente : Window
     {
         CollectionViewModel coleccionVM;
-        public AddCliente(CollectionViewModel colectionVM)
+        GestionClientes ventanaAnterior;
+        public AddCliente(CollectionViewModel colectionVM, GestionClientes ventanaAnterior)
         {
             InitializeComponent();
             this.coleccionVM = colectionVM;
             cargarProvincias();
+            this.ventanaAnterior = ventanaAnterior;
         }
 
         private void cargarProvincias()
@@ -68,7 +58,7 @@ namespace SgEntregasAlvaroChema
             {
                 foreach (var cli in coleccionVM.ListaClientes)
                 {
-                    if(cli.dni == txt_dni.Text)
+                    if (cli.dni == txt_dni.Text)
                     {
                         correcto = false;
                     }
@@ -89,6 +79,11 @@ namespace SgEntregasAlvaroChema
 
                 }
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ventanaAnterior.Visibility = Visibility.Visible;
         }
     }
 }

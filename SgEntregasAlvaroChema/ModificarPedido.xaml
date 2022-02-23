@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         mc:Ignorable="d"
-         Title="Modificar Pedido" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+         Title="Modificar Pedido" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
    
     <StackPanel>
+        <StackPanel.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Offset="0.1" Color="Yellow" />
+                    <GradientStop Offset="1" Color="LimeGreen" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </StackPanel.Background>
         <StackPanel Orientation="Horizontal">
             <StackPanel>
                 <TextBlock Text="Fecha del pedido: " Margin="5" />

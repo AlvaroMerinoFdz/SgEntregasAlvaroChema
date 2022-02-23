@@ -5,14 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         mc:Ignorable="d"
-        Title="Vista de Ordenador" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Vista de Ordenador" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" x:Name="btn_gestion_clientes" Content="Gestión de Clientes." Click="btn_gestion_clientes_Click"/>
-        <Button Grid.Column="1" x:Name="btn_gestion_pedidos" Content="Gestión de Pedidos." Click="btn_gestion_pedidos_Click"/>
+        <Button Grid.Column="0" x:Name="btn_gestion_clientes" Content="Gestión de Clientes." Click="btn_gestion_clientes_Click" FontSize="36">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.1" Color="Yellow" />
+                        <GradientStop Offset="1" Color="LimeGreen" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Grid.Column="1" x:Name="btn_gestion_pedidos" Content="Gestión de Pedidos." Click="btn_gestion_pedidos_Click" FontSize="36">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.1" Color="LimeGreen" />
+                        <GradientStop Offset="1" Color="Yellow" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

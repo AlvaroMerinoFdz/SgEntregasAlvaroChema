@@ -23,13 +23,15 @@ namespace SgEntregasAlvaroChema
         CollectionViewModel coleccionVM;
         List<String> clientesList;
         clientes cliente;
-        public AddPedido(CollectionViewModel coleccionVM, clientes cliente)
+        GestionPedidos ventanaAnterior;
+        public AddPedido(CollectionViewModel coleccionVM, clientes cliente , GestionPedidos ventanaAnterior)
         {
             InitializeComponent();
             clientesList = new List<String>();
             this.coleccionVM = coleccionVM;
             this.cliente = cliente;
             cargarDatos();
+            this.ventanaAnterior = ventanaAnterior;
         }
 
         private void cargarDatos()
@@ -49,13 +51,7 @@ namespace SgEntregasAlvaroChema
 
         private void btn_aceptar_Click(object sender, RoutedEventArgs e)
         {
-            pedidos pedido = new pedidos();
-            pedido.cliente = clientesList[cmb_cliente.SelectedIndex];
-            pedido.fecha_pedido = (DateTime)dtp_fecha_pedido.SelectedDate;
-            pedido.descripcion = txt_descripcion.Text.ToString();
-
-            //Agregamos también la referencia al objeto
-            pedido.clientes = coleccionVM.ListaClientes[cmb_cliente.SelectedIndex];
+            
 
             if(this.txt_descripcion.Text.Trim() == "" || this.dtp_fecha_pedido.SelectedDate == null)
             {
@@ -63,6 +59,14 @@ namespace SgEntregasAlvaroChema
             }
             else
             {
+                pedidos pedido = new pedidos();
+                pedido.cliente = clientesList[cmb_cliente.SelectedIndex];
+                pedido.fecha_pedido = (DateTime)dtp_fecha_pedido.SelectedDate;
+                pedido.descripcion = txt_descripcion.Text.ToString();
+
+                //Agregamos también la referencia al objeto
+                pedido.clientes = coleccionVM.ListaClientes[cmb_cliente.SelectedIndex];
+
                 //Lo guardamos en la lista de la tabla de clientes de la base de datos
                 coleccionVM.objBD.pedidos.Add(pedido);
                 //Lo guardamos en la lista observable
@@ -76,6 +80,11 @@ namespace SgEntregasAlvaroChema
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.ventanaAnterior.Visibility = Visibility.Visible;
         }
     }
 }

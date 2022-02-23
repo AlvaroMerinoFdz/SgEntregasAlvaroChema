@@ -5,11 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Ventana Principal" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.Salir" Executed="Salir_Executed" CanExecute="Salir_CanExecute"/>
     </Window.CommandBindings>
+    
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Offset="0.1" Color="Yellow" />
+                    <GradientStop Offset="1" Color="LimeGreen" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Button x:Name="btn_tactil"  HorizontalAlignment="Left" Margin="67,48,0,0" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.654,0.473" Height="140" Click="btn_tactil_Click">
             <Button.Background>
                 <ImageBrush ImageSource="tactil.png"/>

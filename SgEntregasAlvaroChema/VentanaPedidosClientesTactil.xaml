@@ -9,22 +9,21 @@
         xmlns:component="clr-namespace:SgEntregasAlvaroChema.UsersCards"
         xmlns:sys="clr-namespace:System;assembly=mscorlib" 
         mc:Ignorable="d"
-        Title="VentanaPedidosClientesTactil" Height="450" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Window.Resources>
-        <!--<vm:CollectionViewModel x:Key="ColeccionVM"/>-->
-        
-        <!--<ObjectDataProvider ObjectType="{x:Type vm:CollectionViewModel}" x:Key="CollectionViewModel">
-            <ObjectDataProvider.ConstructorParameters>
-                <sys:Int32>3</sys:Int32>
-            </ObjectDataProvider.ConstructorParameters>
-        </ObjectDataProvider>-->
-    </Window.Resources>
+        Title="Clientes" Height="450" Width="800"  WindowStartupLocation="CenterScreen"  Closing="Window_Closing" GotFocus="Window_GotFocus">
+    
     
        
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
-        <StackPanel x:Name="sp_card_list" Orientation="Vertical"  Height="450" Width="800">
-            
+        <StackPanel x:Name="sp_card_list" Height="450" Width="800" >
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.1" Color="Yellow" />
+                        <GradientStop Offset="1" Color="LimeGreen" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </StackPanel.Background>
             <views:UserControlPedidosStackPanelView/>
             
         </StackPanel>

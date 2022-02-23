@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         mc:Ignorable="d"
-        Title="VentanaFirma" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Firma del Pedido" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
 
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.AceptarFirma" CanExecute="check_ejecuta_aceptar_firma" Executed="ejecuta_aceptar_firma"/>
@@ -14,6 +14,14 @@
 
 
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Offset="0.1" Color="Yellow" />
+                    <GradientStop Offset="1" Color="LimeGreen" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Canvas Name="theRootCanvas" Height="424" VerticalAlignment="Bottom" Margin="0,0,416.6,0.4">
             <Border Background="White" BorderBrush="Black" BorderThickness="2" 
                     Margin="10" Width="300" Height="400" Canvas.Top="2" Canvas.Left="2" Canvas.Right="10">
@@ -23,11 +31,11 @@
             </Border>
 
         </Canvas>
-        <Button x:Name="btn_aceptar_firma" Content="Aceptar" HorizontalAlignment="Left" Margin="520,130,0,0" VerticalAlignment="Top" Width="121" Height="35"  Command="local:Comandos.AceptarFirma"/>
-        <Button x:Name="btn_cancelar_firma" Content="Cancelar" HorizontalAlignment="Left" Margin="520,232,0,0" VerticalAlignment="Top" Width="121" Height="35" Click="btn_cancelar_firma_Click"/>
-        <Button x:Name="btn_limpiar_firma" Content="Limpiar" HorizontalAlignment="Left" Margin="520,328,0,0" VerticalAlignment="Top" Width="121" Height="35" Command="local:Comandos.LimpiarFirma"/>
-        
-        <Label Content="Id Pedido :" HorizontalAlignment="Left" Margin="399,31,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lbl_id_pedido" Content="" HorizontalAlignment="Left" Margin="487,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.047,0.844"/>
+        <Button Background="Yellow" x:Name="btn_aceptar_firma" Content="Aceptar" HorizontalAlignment="Left" Margin="520,130,0,0" VerticalAlignment="Top" Width="121" Height="35"  Command="local:Comandos.AceptarFirma"/>
+        <Button Background="Yellow" x:Name="btn_cancelar_firma" Content="Cancelar" HorizontalAlignment="Left" Margin="520,232,0,0" VerticalAlignment="Top" Width="121" Height="35" Click="btn_cancelar_firma_Click"/>
+        <Button Background="Yellow" x:Name="btn_limpiar_firma" Content="Limpiar" HorizontalAlignment="Left" Margin="520,328,0,0" VerticalAlignment="Top" Width="121" Height="35" Command="local:Comandos.LimpiarFirma"/>
+
+        <Label Content="Id Pedido :" HorizontalAlignment="Left" Margin="399,31,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Label x:Name="lbl_id_pedido" Content="" HorizontalAlignment="Left" Margin="540,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.047,0.844" FontSize="18"/>
     </Grid>
 </Window>
