@@ -10,8 +10,16 @@
     <Window.Resources>
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
     </Window.Resources>
-    <Grid Margin="0,0,0,42">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Offset="0.1" Color="Yellow" />
+                    <GradientStop Offset="1" Color="LimeGreen" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Grid.Background>
         <ComboBox Name="cmb_clientes" Margin="10,20,10,122"/>
-        <Button x:Name="btnCargarPedidos" Content="Cargar Pedidos" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="335" Click="btnCargarPedidos_Click"/>
+        <Button Background="Yellow" x:Name="btnCargarPedidos" Content="Cargar Pedidos" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="335" Click="btnCargarPedidos_Click"/>
     </Grid>
 </Window>

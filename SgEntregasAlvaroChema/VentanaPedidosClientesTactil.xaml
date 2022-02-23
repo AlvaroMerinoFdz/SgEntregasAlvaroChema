@@ -24,7 +24,14 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
         <StackPanel x:Name="sp_card_list" Orientation="Vertical"  Height="450" Width="800">
-            
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.1" Color="Yellow" />
+                        <GradientStop Offset="1" Color="LimeGreen" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </StackPanel.Background>
             <views:UserControlPedidosStackPanelView/>
             
         </StackPanel>

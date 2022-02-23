@@ -34,11 +34,21 @@
     </Window.Resources>
     
     <Grid>
+        
         <ListView x:Name="lista_clientes_ventana_tactil" ItemsSource="{Binding Source={StaticResource CollectionVmVentanaTactil},Path=ListaClientes}" MouseDoubleClick="lista_clientes_ventana_tactil_MouseDoubleClick_1">
+            <ListView.Background>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.1" Color="Yellow" />
+                        <GradientStop Offset="1" Color="LimeGreen" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border  Style="{StaticResource Brd}">
-                        <StackPanel  Style="{StaticResource Stack_H}" >
+                        <StackPanel  Style="{StaticResource Stack_H}">
+                            
                             <StackPanel Style="{StaticResource Stack_V}">
                                 <TextBlock>
                                     <TextBlock x:Name="txt_nombre_cliente" Style="{StaticResource txt}" FontSize="25" Text="{Binding nombre}"/>

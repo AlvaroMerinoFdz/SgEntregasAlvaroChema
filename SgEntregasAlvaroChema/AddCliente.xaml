@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="Añadir Cliente" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel>
+        <StackPanel.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Offset="0.1" Color="Yellow" />
+                    <GradientStop Offset="1" Color="LimeGreen" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </StackPanel.Background>
         <StackPanel Orientation="Horizontal">
             <StackPanel>
                 <TextBlock Text="Dni: " Margin="5" />
@@ -28,8 +36,8 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Button x:Name="btn_aceptar" Height="50" Width="100" Margin="10" Click="btn_aceptar_Click">Aceptar</Button>
-            <Button x:Name="btn_cancelar" Height="50" Width="100" Margin="10" Click="btn_cancelar_Click">Cancelar</Button>
+            <Button Background="Yellow" x:Name="btn_aceptar" Height="50" Width="100" Margin="10" Click="btn_aceptar_Click">Aceptar</Button>
+            <Button Background="Yellow" x:Name="btn_cancelar" Height="50" Width="100" Margin="10" Click="btn_cancelar_Click">Cancelar</Button>
         </StackPanel>
     </StackPanel>
 
