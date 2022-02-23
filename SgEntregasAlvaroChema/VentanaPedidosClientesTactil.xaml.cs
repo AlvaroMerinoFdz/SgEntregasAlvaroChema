@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace SgEntregasAlvaroChema
@@ -37,6 +38,8 @@ namespace SgEntregasAlvaroChema
         public VentanaPedidosClientesTactil(clientes client, CollectionViewModel cvm, VentanaTactil ventanaAnterior)
         {
             InitializeComponent();
+            comprobarOrientacion();
+            SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
 
             this.clienteActual = client;
             this.cvm = cvm;
@@ -94,15 +97,15 @@ namespace SgEntregasAlvaroChema
 
             if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
             {
-                sp_card_list.Orientation = System.Windows.Controls.Orientation.Horizontal;
-                this.Height = SystemParameters.PrimaryScreenHeight;
-                this.Width = SystemParameters.PrimaryScreenWidth;
+                sp_card_list.Orientation = Orientation.Vertical;
+                //this.Height = SystemParameters.PrimaryScreenHeight;
+                //this.Width = SystemParameters.PrimaryScreenWidth;
             }
             else
             {
-                sp_card_list.Orientation = System.Windows.Controls.Orientation.Vertical;
-                this.Height = SystemParameters.PrimaryScreenHeight;
-                this.Width = SystemParameters.PrimaryScreenWidth;
+                sp_card_list.Orientation = Orientation.Horizontal;
+                //this.Height = SystemParameters.PrimaryScreenHeight;
+                //this.Width = SystemParameters.PrimaryScreenWidth;
             }
         }
     }

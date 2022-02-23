@@ -10,7 +10,7 @@
         xmlns:convert="clr-namespace:SgEntregasAlvaroChema.MyConverters"
         xmlns:sys="clr-namespace:System;assembly=mscorlib" 
         mc:Ignorable="d"
-        Title="Clientes" Height="450" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing" GotFocus="Window_GotFocus">
+        Title="Clientes" Height="450" Width="800"  WindowStartupLocation="CenterScreen"  Closing="Window_Closing" GotFocus="Window_GotFocus">
     <Window.Resources>
         <!--<vm:CollectionViewModel x:Key="ColeccionVM"/>-->
         
@@ -19,14 +19,14 @@
                 <sys:Int32>3</sys:Int32>
             </ObjectDataProvider.ConstructorParameters>
         </ObjectDataProvider>-->
-        <convert:GreatherThanConverter x:Key="myConverterGreatherThan"/>
+        <!--<convert:GreatherThanConverter x:Key="myConverterGreatherThan"/>-->
     </Window.Resources>
     
        
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
-        <StackPanel x:Name="sp_card_list" Orientation="Vertical"  Height="450" Width="800" >
-            <StackPanel.Style>
+        <StackPanel x:Name="sp_card_list" Height="450" Width="800" >
+            <!--<StackPanel.Style>
                 <Style TargetType="StackPanel">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding ActualWidth, ElementName=root,
@@ -36,7 +36,7 @@
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
-            </StackPanel.Style>
+            </StackPanel.Style>-->
             <StackPanel.Background>
                 <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
                     <LinearGradientBrush.GradientStops>
