@@ -39,15 +39,11 @@ namespace SgEntregasAlvaroChema.MyViews
 
             if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
             {
-                contenderCards.Orientation = Orientation.Horizontal;
-                this.Height = SystemParameters.PrimaryScreenHeight;
-                this.Width = SystemParameters.PrimaryScreenWidth;
+                contenderCards.Orientation = Orientation.Vertical;
             }
             else
             {
-                contenderCards.Orientation = Orientation.Vertical;
-                this.Height = SystemParameters.PrimaryScreenHeight;
-                this.Width = SystemParameters.PrimaryScreenWidth;
+                contenderCards.Orientation = Orientation.Horizontal;
             }
         }
     }

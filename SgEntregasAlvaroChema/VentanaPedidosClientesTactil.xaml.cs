@@ -85,11 +85,11 @@ namespace SgEntregasAlvaroChema
 
             if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
             {
-                sp_card_list.Orientation = Orientation.Vertical;
+                sp_card_list.Orientation = Orientation.Horizontal;
             }
             else
             {
-                sp_card_list.Orientation = Orientation.Horizontal;
+                sp_card_list.Orientation = Orientation.Vertical;
             }
         }
     }
