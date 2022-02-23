@@ -51,13 +51,7 @@ namespace SgEntregasAlvaroChema
 
         private void btn_aceptar_Click(object sender, RoutedEventArgs e)
         {
-            pedidos pedido = new pedidos();
-            pedido.cliente = clientesList[cmb_cliente.SelectedIndex];
-            pedido.fecha_pedido = (DateTime)dtp_fecha_pedido.SelectedDate;
-            pedido.descripcion = txt_descripcion.Text.ToString();
-
-            //Agregamos también la referencia al objeto
-            pedido.clientes = coleccionVM.ListaClientes[cmb_cliente.SelectedIndex];
+            
 
             if(this.txt_descripcion.Text.Trim() == "" || this.dtp_fecha_pedido.SelectedDate == null)
             {
@@ -65,6 +59,14 @@ namespace SgEntregasAlvaroChema
             }
             else
             {
+                pedidos pedido = new pedidos();
+                pedido.cliente = clientesList[cmb_cliente.SelectedIndex];
+                pedido.fecha_pedido = (DateTime)dtp_fecha_pedido.SelectedDate;
+                pedido.descripcion = txt_descripcion.Text.ToString();
+
+                //Agregamos también la referencia al objeto
+                pedido.clientes = coleccionVM.ListaClientes[cmb_cliente.SelectedIndex];
+
                 //Lo guardamos en la lista de la tabla de clientes de la base de datos
                 coleccionVM.objBD.pedidos.Add(pedido);
                 //Lo guardamos en la lista observable

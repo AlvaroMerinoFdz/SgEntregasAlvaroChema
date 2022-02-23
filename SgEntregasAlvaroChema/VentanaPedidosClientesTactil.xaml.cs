@@ -16,6 +16,7 @@ namespace SgEntregasAlvaroChema
         clientes clienteActual;
         clientes clienteCopia;
         CollectionViewModel cvm;
+        List<pedidos> listaPedidos = new List<pedidos>();
         private VentanaTactil ventanaAnterior;
 
         public VentanaPedidosClientesTactil(clientes client)
@@ -41,24 +42,23 @@ namespace SgEntregasAlvaroChema
 
         private void cargarPedidosCliente()
         {
-
+            
 
             var query = from p in cvm.objBD.pedidos
                         where p.cliente == this.clienteActual.dni && p.fecha_entrega == null
                         select p;
+            
+            listaPedidos = query.ToList();
 
-            var lista = query.ToList();
-
-            pintarCards(lista);
+            pintarCards(listaPedidos);
 
         }
 
         private void pintarCards(List<pedidos> lista)
         {
-
+            this.sp_card_list.Children.Clear();
             foreach (pedidos p in lista)
             {
-                
                 UserControlPedidos ucp = new UserControlPedidos(cvm, p,this);
 
                 ucp.Id_Pedido = p.id_pedido;
@@ -72,6 +72,11 @@ namespace SgEntregasAlvaroChema
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             this.ventanaAnterior.Visibility = Visibility.Visible;
+        }
+
+        private void Window_GotFocus(object sender, RoutedEventArgs e)
+        {
+            cargarPedidosCliente();
         }
     }
 }
