@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
         xmlns:converters ="clr-namespace:SgEntregasAlvaroChema.Converters"
         mc:Ignorable="d"
-        Title="Modificar Cliente" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Modificar Cliente" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
     <Window.Resources>
         <converters:ProvinciaConverter x:Key="conversorProvincia"/>
     </Window.Resources>

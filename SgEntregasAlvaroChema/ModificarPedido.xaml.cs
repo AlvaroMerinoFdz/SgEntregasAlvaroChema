@@ -12,7 +12,8 @@ namespace SgEntregasAlvaroChema
         pedidos pedido;
         pedidos copiaPedido;
         CollectionViewModel coleccionVM;
-        public ModificarPedido(pedidos pedido, CollectionViewModel colectionVM)
+        GestionPedidos ventanaAnterior;
+        public ModificarPedido(pedidos pedido, CollectionViewModel colectionVM, GestionPedidos ventanaAnterior)
         {
             InitializeComponent();
             this.pedido = pedido;
@@ -20,6 +21,7 @@ namespace SgEntregasAlvaroChema
             copiaPedido = (pedidos)pedido.Clone();
             this.DataContext = copiaPedido;
             this.coleccionVM = colectionVM;
+            this.ventanaAnterior = ventanaAnterior;
 
             cargarDatos();
         }
@@ -50,5 +52,9 @@ namespace SgEntregasAlvaroChema
             }
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.ventanaAnterior.Visibility = Visibility.Visible;
+        }
     }
 }

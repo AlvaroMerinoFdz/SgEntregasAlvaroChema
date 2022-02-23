@@ -24,7 +24,8 @@ namespace SgEntregasAlvaroChema
         clientes copiaCliente;
         CollectionViewModel coleccionVM;
         List<int> provinciasList = new List<int>();
-        public ModificarCliente(clientes cliente, CollectionViewModel coleccionVM)
+        GestionClientes ventanaAnterior;
+        public ModificarCliente(clientes cliente, CollectionViewModel coleccionVM, GestionClientes ventanaAnterior)
         {
             InitializeComponent();
             this.cliente = cliente;
@@ -32,6 +33,7 @@ namespace SgEntregasAlvaroChema
             copiaCliente = (clientes)cliente.Clone();
             this.DataContext = copiaCliente;
             this.coleccionVM = coleccionVM;
+            this.ventanaAnterior = ventanaAnterior;
 
             cargarProvincias();
         }
@@ -83,6 +85,11 @@ namespace SgEntregasAlvaroChema
 
                 this.Close();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.ventanaAnterior.Visibility = Visibility.Visible;
         }
     }
 }

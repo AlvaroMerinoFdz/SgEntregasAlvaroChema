@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SgEntregasAlvaroChema"
          xmlns:vm="clr-namespace:SgEntregasAlvaroChema.viewModel"
         mc:Ignorable="d"
-        Title="Gestión de Pedidos" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Gestión de Pedidos" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.Add" CanExecute="Add_CanExecute" Executed="Add_Executed"/>
         <CommandBinding Command="local:Comandos.Modificar" CanExecute="Seleccionado_CanExecute" Executed="Modificar_Executed"/>

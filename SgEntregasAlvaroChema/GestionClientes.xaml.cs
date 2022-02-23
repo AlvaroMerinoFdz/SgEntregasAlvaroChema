@@ -48,13 +48,15 @@ namespace SgEntregasAlvaroChema
 
         private void Add_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            AddCliente ventana = new AddCliente(coleccionVM);
-            ventana.ShowDialog();
+            AddCliente ventana = new AddCliente(coleccionVM, this);
+            this.Visibility = Visibility.Hidden;
+            ventana.Show();
         }
         private void Modificar_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             int pos = lstClientes.SelectedIndex;
-            ModificarCliente ventana = new ModificarCliente(coleccionVM.ListaClientes[pos], coleccionVM);
+            this.Visibility = Visibility.Hidden;
+            ModificarCliente ventana = new ModificarCliente(coleccionVM.ListaClientes[pos], coleccionVM, this);
             ventana.ShowDialog();
         }
 

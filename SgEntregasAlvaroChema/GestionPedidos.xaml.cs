@@ -12,12 +12,14 @@ namespace SgEntregasAlvaroChema
     {
         private CollectionViewModel coleccionVM;
         private clientes cliente;
-        public GestionPedidos(clientes cliente)
+        SeleccionarUsuario ventanaAnterior;
+        public GestionPedidos(clientes cliente, SeleccionarUsuario ventanaAnterior)
         {
             InitializeComponent();
             coleccionVM = (CollectionViewModel)this.Resources["ColeccionVM"];
             this.cliente = cliente;
             coleccionVM.cargarPedidosCliente(cliente.dni);
+            this.ventanaAnterior = ventanaAnterior;
         }
         private void Add_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -38,14 +40,16 @@ namespace SgEntregasAlvaroChema
 
         private void Add_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            AddPedido ventana = new AddPedido(coleccionVM, cliente);
-            ventana.ShowDialog();
+            AddPedido ventana = new AddPedido(coleccionVM, cliente, this);
+            this.Visibility = Visibility.Hidden;
+            ventana.Show();
         }
         private void Modificar_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             pedidos pedido = (pedidos)dgPedidos.SelectedItem;
-            ModificarPedido modificar = new ModificarPedido(pedido, coleccionVM);
-            modificar.ShowDialog();
+            ModificarPedido modificar = new ModificarPedido(pedido, coleccionVM, this);
+            this.Visibility = Visibility.Hidden;
+            modificar.Show();
         }
 
         private void Eliminar_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -64,6 +68,11 @@ namespace SgEntregasAlvaroChema
         private void GuardarBBDD_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             coleccionVM.guardarDatos();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.ventanaAnterior.Visibility = Visibility.Visible;
         }
     }
 }
