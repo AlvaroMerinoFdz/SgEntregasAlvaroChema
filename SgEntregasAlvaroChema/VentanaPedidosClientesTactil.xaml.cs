@@ -17,23 +17,11 @@ namespace SgEntregasAlvaroChema
     {
 
         clientes clienteActual;
-        clientes clienteCopia;
         CollectionViewModel cvm;
         List<pedidos> listaPedidos = new List<pedidos>();
         private VentanaTactil ventanaAnterior;
 
-        public VentanaPedidosClientesTactil(clientes client)
-        {
-            InitializeComponent();
-
-            this.clienteActual = client;
-            this.cvm = (CollectionViewModel)((ObjectDataProvider)this.Resources["CollectionViewModel"]).ObjectInstance;
-            //this.cvm = new CollectionViewModel(clienteActual);
-
-            comprobarOrientacion();
-            SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
-
-        }
+       
 
         public VentanaPedidosClientesTactil(clientes client, CollectionViewModel cvm, VentanaTactil ventanaAnterior)
         {
@@ -98,14 +86,10 @@ namespace SgEntregasAlvaroChema
             if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
             {
                 sp_card_list.Orientation = Orientation.Vertical;
-                //this.Height = SystemParameters.PrimaryScreenHeight;
-                //this.Width = SystemParameters.PrimaryScreenWidth;
             }
             else
             {
                 sp_card_list.Orientation = Orientation.Horizontal;
-                //this.Height = SystemParameters.PrimaryScreenHeight;
-                //this.Width = SystemParameters.PrimaryScreenWidth;
             }
         }
     }

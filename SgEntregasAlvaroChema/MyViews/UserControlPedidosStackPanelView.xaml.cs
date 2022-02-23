@@ -28,18 +28,6 @@ namespace SgEntregasAlvaroChema.MyViews
             SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //VentanaFirma winFirm = new VentanaFirma(1);
-            //winFirm.ShowDialog();
-        }
-
-        private void btn_firmar_Click(object sender, RoutedEventArgs e)
-        {
-            //VentanaFirma winFirm = new VentanaFirma(1);
-            //winFirm.ShowDialog();
-
-        }
 
         private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
         {

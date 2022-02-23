@@ -37,7 +37,7 @@
                 <TextBox x:Name="txt_domicilio" Width="200" Margin="4" Text="{Binding domicilio}"/>
                 <TextBox x:Name="txt_localidad" Width="200" Margin="4" Text="{Binding localidad}"/>
                 <ComboBox x:Name="cmb_provincia" Width="200" Margin="4" SelectedIndex="{Binding provincia, Converter={StaticResource conversorProvincia} }"/>
-                <!--SelectedIndex="{Binding provincia }"-->
+               
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
@@ -45,36 +45,4 @@
             <Button Background="Yellow" x:Name="btn_cancelar" Height="50" Width="100" Margin="10" Click="btn_cancelar_Click">Cancelar</Button>
         </StackPanel>
     </StackPanel>
-
-    <!--Opcion 1
-    <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Dni:          " Margin="5" />
-            <TextBox x:Name="txt_dni" Width="200" Margin="5"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" >
-            <TextBlock Text="Nombre:  " Margin="5" />
-            <TextBox x:Name="txt_nombre" Width="200" Margin="5"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Apellidos:" Margin="5" />
-            <TextBox x:Name="txt_apellidos" Width="200" Margin="5"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Email:       " Margin="5"/>
-            <TextBox x:Name="txt_email" Width="200" Margin="5"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Domicilio: " Margin="5"/>
-            <TextBox x:Name="txt_domicilio" Width="200" Margin="5"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Localidad: " Margin="5" />
-            <TextBox x:Name="txt_localidad" Width="200" Margin="5"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Provincia: " Margin="5"/>
-            <ComboBox x:Name="cmb_provincia" Width="200" Margin="5"/>
-        </StackPanel>
-    
-    -->
 </Window>
