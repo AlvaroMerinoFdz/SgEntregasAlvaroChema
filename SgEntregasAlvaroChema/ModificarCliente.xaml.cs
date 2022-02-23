@@ -46,17 +46,6 @@ namespace SgEntregasAlvaroChema
                 cmb_provincia.Items.Add(provi.nombre_provincia);
                 provinciasList.Add(provi.id_provincia);
             }
-            //Con esto cargamos la provincia adecuada
-           /* int pos = 0;
-            int i = 0;
-            for (i=0; i < provinciasList.Count; i++)
-            {
-                if(provinciasList[i] == cliente.provincia)
-                {
-                    pos = i;
-                }
-            }
-            cmb_provincia.SelectedIndex = i;*/
         }
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)

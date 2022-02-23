@@ -78,21 +78,7 @@ namespace SgEntregasAlvaroChema.UsersCards
             set { SetValue(Fecha_PedidoProperty, value); }
         }
 
-        //private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    MessageBox.Show("sdkjhsajhgsa");
-        //    VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm, pedido,ventanaAnterior );
-        //    winFirm.ShowDialog();
-        //    e.Handled = true;
-        //}
-
-        //private void Border_TouchDown(object sender, TouchEventArgs e)
-        //{
-        //    VentanaFirma winFirm = new VentanaFirma(Id_Pedido, cvm, pedido, ventanaAnterior);
-        //    winFirm.ShowDialog();
-        //    e.Handled = true;
-        //}
-
+     
         
     }
 }
